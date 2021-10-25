@@ -22,7 +22,7 @@ class Tweet:
 	def aQuienSeDirige(self):
 		return list(filter(lambda x: x[0] in '@', self.mensaje.split(' ')))
 
-tweet = Tweet('hola juan carlos como estas @sspalisa', 'sspalisa')
+tweet = Tweet('tweet con tag @sspalisa', 'sspalisa')
 
 
 print(tweet.mensaje)

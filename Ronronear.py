@@ -1,29 +1,30 @@
-class Tweet:
+import Tweet.*
 
-	mensaje = ''
-	user = ''
-	global MAX_PALABRAS_EN_TWEET
-	MAX_PALABRAS_EN_TWEET = 40
+class pdpwitter:
+	tweets = []
+	tweetsDirigidos = []
+	tweetsNoDirigidos = []
+	bots = []
 
-	def __init__(self, mensaje, user):
-		self.mensaje = mensaje
-		self.user = user
+	def recibirTweet(self, tweet):
+    
+		if tweet.longitudInvalida():
+    			print("Tweet invalido: Longitud de palabras excede el maximo permitido")
+    			return -1
+		else:
+			self.tweets.append(tweet)
+			
+			if tweet.tweetDirigido():
+				self.tweetsDirigidos.append(tweet)
+			else:
+				self.tweetsNoDirigidos.append(tweet)
 
-	def contienePalabra(self, palabra):
-		return self.mensaje.find(palabra)
+	def addBot(self, bot):
+		self.bots.append(bot)
 
-	def longitudInvalida(self):
-		a = self.mensaje.split(' ')
-		return len(a) > MAX_PALABRAS_EN_TWEET
-	
-	def	tweetDirigido(self):
-		return self.mensaje.find('@') != -1
 
-	def aQuienSeDirige(self):
-		return list(filter(lambda x: x[0] in '@', self.mensaje.split(' ')))
 
 tweet = Tweet('tweet con tag @sspalisa', 'sspalisa')
-
 
 print(tweet.mensaje)
 print(tweet.user)

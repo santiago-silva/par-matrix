@@ -1,4 +1,4 @@
-import Tweet.*
+from Tweet import *
 
 class pdpwitter:
 	tweets = []
@@ -10,7 +10,7 @@ class pdpwitter:
     
 		if tweet.longitudInvalida():
     			print("Tweet invalido: Longitud de palabras excede el maximo permitido")
-    			return -1
+    			return "a"
 		else:
 			self.tweets.append(tweet)
 			
